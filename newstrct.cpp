@@ -19,9 +19,9 @@ int main()
 	cin >> (*ps).volume;		  //method 2 for member access
 	cout << "Enter price : $";
 	cin >> ps -> price;
-	cout << "Name :" << (*ps).name <<endl;                    //method 1
-	cout << "Volume : " << ps->volume << " cubic feet \n";	  //method 2
-	cout << "Price : $" << ps->price <<endl;		  //method 3
+	cout << "Name :" << (*ps).name <<endl;                    //method 2
+	cout << "Volume : " << ps->volume << " cubic feet \n";	  //method 1
+	cout << "Price : $" << ps->price <<endl;		  //method 1
 	delete ps ;				//free memory used by structure
 	return 0;
 }
