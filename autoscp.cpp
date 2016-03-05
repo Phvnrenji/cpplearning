@@ -1,4 +1,5 @@
 //autoscp.cpp -- illustrating scop of automatic variables
+//在默认情况下，在函数中声明的函数参数和变量的存储持续性为自动，作用域为局部，没有链接性
 #include <iostream>
 void oil(int x);
 using namespace std;
