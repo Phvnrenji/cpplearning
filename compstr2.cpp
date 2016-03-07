@@ -1,4 +1,5 @@
 //compstr2.cpp - - comparing strings using arrys
+//string类型
 #include <iostream>
 #include <string>
 int main(){
