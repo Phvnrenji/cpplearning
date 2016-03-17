@@ -20,7 +20,6 @@ void sequen_two(SLNode *head, int size);
 int main() {
 	SLNode *linlist;
 	SLNode *linlist_s;
-	int size = 0;
 	//	int length;
 	//	int series[ArSize];
 	//	length = rand();
@@ -56,15 +55,20 @@ SLNode *create() {
 	int x;
 	int length;
 	length = ArSize;
-	head = (SLNode*)malloc(sizeof(Node));//malloc()函数向系统申请分配一个节点
-	head->data = 0;
+    
+    /*malloc()函数向系统申请分配一个节点*/
+	// head = (SLNode*)malloc(sizeof(Node));
+	head = new SLNode;
+   
+    head->data = 0;
 	head->next = NULL;
 	p = head;
 //	cout << "生成链表：" << endl;
 	for (int i = 0; i < length; ++i) {
 
 		x = rand() % 100 + 1;
-		s = (SLNode*)malloc(sizeof(Node));
+		// s = (SLNode*)malloc(sizeof(Node));
+        s = new SLNode;
 		s->data = x;
 //		cout << s->data << " ";
 		p->next = s;
@@ -174,50 +178,3 @@ void sequen_two(SLNode *head, int size) {
 		sequen_two(min_pos, size-1);
 	}
 }
-
-
-/*
-void sequencer(SLNode **head, SLNode *end) {
-	SLNode *right;
-	SLNode **left_shift, **right_shift;
-	SLNode *refer, *prev;
-	int count, left_count = 0, right_count = 0;
-	if (*head == end)
-		return;
-	do {
-		refer = *head;
-		left_shift = head;
-		right_shift = &right;
-		prev = (*head)->next;
-		for (; prev != end && prev != NULL; prev = prev->next) {
-			if (prev->data < refer->data) {
-				++left_count;
-				*left_shift = prev;
-				left_shift = &(prev->next);
-			}
-			else {
-				++right_count;
-				*right_shift = prev;
-				right_shift = &(prev->next);
-			}
-		}
-
-		*right_shift = end;
-		*left_shift = refer;
-		refer->next = right;
-
-		if (left_shift > right_shift) {
-			sequencer(&(refer->next), end);
-			end = refer;
-			count = left_count;
-		}
-		else {
-			sequencer(head, refer);
-			head = &(refer->next);
-			count = right_count;
-		}
-	} while (count > 1);
-	
-}
-
-*/
