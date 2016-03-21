@@ -35,9 +35,9 @@ typedef struct {
 	int mu, nu, tu;
 }RLSMatrix;	//定义带链接信息的三元组类型
 
-			// void InputTSMatrix(TSMatrix &M);
-			// void OutputTSMatrix(TSMatrix M);
-			// void TransposeSMatrix(TSMatrix M, TSMatrix &T);
+// void InputTSMatrix(TSMatrix &M);
+// void OutputTSMatrix(TSMatrix M);
+// void TransposeSMatrix(TSMatrix M, TSMatrix &T);
 RLSMatrix InputRLSMatrix();
 void OutputRLSMatrix(RLSMatrix M);
 void TransposeRLSMatrix(RLSMatrix M, RLSMatrix &T);
@@ -128,6 +128,7 @@ int MultRLSMatrix() {
 		}
 	}
 	cout << "两个矩阵相乘的结果：\n";
+    cout << "=================================\n";
 	OutputRLSMatrix(Result);
 	return 0;
 }
@@ -155,7 +156,7 @@ RLSMatrix InputRLSMatrix() {
 		cout << "第 " << k << " 个元素：";
 		cin >> matrix.data[k].i >> matrix.data[k].j >> matrix.data[k].e;
 	}
-	cout << "输入完成！\n" << "稀疏矩阵为：\n" << "=============================\n";
+	cout << "输入完成！\n" << "稀疏矩阵为：\n" << "=================================\n";
 	OutputRLSMatrix(matrix);
 	TransposeRLSMatrix(matrix, T);
 	return matrix;
@@ -178,7 +179,7 @@ void OutputRLSMatrix(RLSMatrix M) {
 		}
 		cout << endl;
 	}
-	cout << "=============================" << endl;
+	cout << "=================================" << endl;
 }
 
 //矩阵快速转置
@@ -208,6 +209,6 @@ void TransposeRLSMatrix(RLSMatrix M, RLSMatrix &T) {
 		}
 	}
 	// matrix = T;
-	cout << "输入矩阵的转置矩阵为: \n" << "=============================" << endl;
+	cout << "输入矩阵的转置矩阵为: \n" << "=================================" << endl;
 	OutputRLSMatrix(T);
 }//TransposeSMatrix

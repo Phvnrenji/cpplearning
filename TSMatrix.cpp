@@ -38,7 +38,7 @@ typedef struct{
 // void InputTSMatrix(TSMatrix &M);
 // void OutputTSMatrix(TSMatrix M);
 // void TransposeSMatrix(TSMatrix M, TSMatrix &T);
-RLSMatrix InputRLSMatrix();
+void InputRLSMatrix(RLSMatrix &M);
 void OutputRLSMatrix(RLSMatrix M);
 void TransposeRLSMatrix(RLSMatrix M, RLSMatrix &T);
 int MultRLSMatrix();
@@ -60,8 +60,9 @@ int main() {
 
 int MultRLSMatrix(){
     RLSMatrix Mcand, Mer, Result;
-    Mcand = InputRLSMatrix();
-    Mer = InputRLSMatrix();
+    InputRLSMatrix(Mcand);
+    InputRLSMatrix(Mer);
+    OutputRLSMatrix(Mcand);
     CountPosOfTu(Mcand);
     CountPosOfTu(Mer);
     if(Mcand.nu ! = Mer.mu)
@@ -144,7 +145,7 @@ void CountPosOfTu(RLSMatrix &M){
 
 
 //创建带链接信息的三元组
-RLSMatrix InputRLSMatrix(){
+void InputRLSMatrix(RLSMatrix &M){
 	RLSMatrix T;
     RLSMatrix matrix;
 	cout << "输入矩阵的行数、列数和元素个数：" << endl;
@@ -154,9 +155,10 @@ RLSMatrix InputRLSMatrix(){
 		cin >> matrix.data[k].i >> matrix.data[k].j >>matrix.data[k].e;
 	}
 	cout << "输入完成！\n" << "稀疏矩阵为：\n";
+    M = matrix;
 	OutputRLSMatrix(matrix);
     TransposeRLSMatrix(matrix, T);
-    return matrix;
+    // return matrix;
 }
 
 //输出带链接信息的三元组矩阵
