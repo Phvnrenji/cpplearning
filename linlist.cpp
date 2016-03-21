@@ -33,7 +33,7 @@ int main() {
     clock_t q1_end_time=clock();
 //	sequencer(&linlist, NULL);
 	List(linlist);
-    cout<< "排序用时: "<<static_cast<double>(q1_end_time-q1_start_time)/CLOCKS_PER_SEC*1000<<"ms"<<endl;//输出运行时间
+    cout << "排序用时: " << static_cast<double>(q1_end_time-q1_start_time)/CLOCKS_PER_SEC*1000 << "ms" << endl;//输出运行时间
 	cout << "=================================\n" << "创建单链表：\n";
 	linlist_s = create();
 	List(linlist_s);
@@ -43,7 +43,7 @@ int main() {
     clock_t q2_end_time=clock();
     
 	List(linlist_s);
-    cout<< "排序用时: "<<static_cast<double>(q2_end_time-q2_start_time)/CLOCKS_PER_SEC*1000<<"ms"<<endl;//输出运行时间
+    cout << "排序用时: "<< static_cast<double>(q2_end_time-q2_start_time)/CLOCKS_PER_SEC*1000 << "ms" << endl;//输出运行时间
     cout << "=================================\n";
 //	system("pause");
 	return 0;
