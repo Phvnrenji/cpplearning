@@ -3,13 +3,17 @@
 #include <ctime>
 using namespace std;
 typedef int DataType;
+
+//constants
 const int ArSize = 10;
 
+//structure
 typedef struct Node {
 	DataType data;
 	struct Node *next;
 }SLNode;
 
+// function prototype
 SLNode *create();
 void List(SLNode *head);
 //void sequencer(SLNode **head, SLNode *end);

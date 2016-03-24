@@ -146,7 +146,7 @@ void CountPosOfTu(RLSMatrix &M) {
 }//每行第一个非零元素在三元组中的位置
 
 
-//创建带链接信息的三元组
+//创建三元组
 RLSMatrix InputRLSMatrix() {
 	RLSMatrix T;
 	RLSMatrix matrix;
@@ -162,7 +162,7 @@ RLSMatrix InputRLSMatrix() {
 	return matrix;
 }
 
-//输出带链接信息的三元组矩阵
+//输出稀疏矩阵
 void OutputRLSMatrix(RLSMatrix M) {
 	int m, n, k = 1;
 	for (m = 0; m < M.mu; ++m) {
