@@ -38,9 +38,9 @@ typedef struct {
 // void InputTSMatrix(TSMatrix &M);
 // void OutputTSMatrix(TSMatrix M);
 // void TransposeSMatrix(TSMatrix M, TSMatrix &T);
-RLSMatrix InputRLSMatrix();
-void OutputRLSMatrix(RLSMatrix M);
-void TransposeRLSMatrix(RLSMatrix M, RLSMatrix &T);
+void InputRLSMatrix(RLSMatrix &M);
+void OutputRLSMatrix(const RLSMatrix &M);
+void TransposeRLSMatrix(const RLSMatrix &M, RLSMatrix &T);
 int MultRLSMatrix();
 void CountPosOfTu(RLSMatrix &M);
 
@@ -75,9 +75,9 @@ int MultRLSMatrix() {
 	RLSMatrix Mcand, Mer, Result;
 	cout << "输入两个符合矩阵乘法规则的矩阵：" << endl;
 	cout << "第一个矩阵(行数、列数和元素个数)：" << endl;
-	Mcand = InputRLSMatrix();
+	InputRLSMatrix(Mcand);
 	cout << "第二个矩阵(行数、列数和元素个数)：" << endl;
-	Mer = InputRLSMatrix();
+	InputRLSMatrix(Mer);
 	CountPosOfTu(Mcand);
 	CountPosOfTu(Mer);
 	if (Mcand.nu != Mer.mu)
@@ -147,8 +147,8 @@ void CountPosOfTu(RLSMatrix &M) {
 
 
 //创建三元组
-RLSMatrix InputRLSMatrix() {
-	RLSMatrix T;
+void InputRLSMatrix(RLSMatrix &M) {
+	// RLSMatrix T;
 	RLSMatrix matrix;
 	cin >> matrix.mu >> matrix.nu >> matrix.tu;
 	cout << "输入各非零元素的位置和值：" << endl;
@@ -158,12 +158,13 @@ RLSMatrix InputRLSMatrix() {
 	}
 	cout << "输入完成！\n" << "稀疏矩阵为：\n" << "=================================\n";
 	OutputRLSMatrix(matrix);
-	TransposeRLSMatrix(matrix, T);
-	return matrix;
+    M = matrix;
+	TransposeRLSMatrix(M, matrix);
+	// return matrix;
 }
 
 //输出稀疏矩阵
-void OutputRLSMatrix(RLSMatrix M) {
+void OutputRLSMatrix(const RLSMatrix &M) {
 	int m, n, k = 1;
 	for (m = 0; m < M.mu; ++m) {
 		for (n = 0; n < M.nu; ++n) {
@@ -183,7 +184,7 @@ void OutputRLSMatrix(RLSMatrix M) {
 }
 
 //矩阵快速转置
-void TransposeRLSMatrix(RLSMatrix M, RLSMatrix &T) {
+void TransposeRLSMatrix(const RLSMatrix &M, RLSMatrix &T) {
 	// TSMatrix matrix;
 	int num[MAXROW + 1];
 	int cpot[MAXROW + 1]; //   构建辅助数组
