@@ -38,11 +38,11 @@ typedef struct {
 // void InputTSMatrix(TSMatrix &M);
 // void OutputTSMatrix(TSMatrix M);
 // void TransposeSMatrix(TSMatrix M, TSMatrix &T);
-void InputRLSMatrix(RLSMatrix &M);
-void OutputRLSMatrix(const RLSMatrix &M);
+void InputRLSMatrix(RLSMatrix &M);  
+void OutputRLSMatrix(const RLSMatrix &M);   //使用引用传递结构，不改变结构内容时应使用const
 void TransposeRLSMatrix(const RLSMatrix &M, RLSMatrix &T);
-int MultRLSMatrix();
 void CountPosOfTu(RLSMatrix &M);
+int MultRLSMatrix();
 
 int main() {
 	//	cout << "!!!Hello World!!!" << endl;
