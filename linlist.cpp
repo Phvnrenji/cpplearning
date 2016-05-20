@@ -5,7 +5,7 @@ using namespace std;
 typedef int DataType;
 
 //constants
-const int ArSize = 10;
+const int ArSize = 100000;
 
 //structure
 typedef struct Node {
@@ -30,23 +30,23 @@ int main() {
 
 	linlist = create();
 	cout << "=================================\n" << "创建单链表：\n";
-	List(linlist);
+	// List(linlist);
 	cout << "快速排序：\n";
     clock_t q1_start_time=clock();
 	sequen_one(linlist, ArSize);
     clock_t q1_end_time=clock();
 //	sequencer(&linlist, NULL);
-	List(linlist);
+	// List(linlist);
     cout << "排序用时: " << static_cast<double>(q1_end_time-q1_start_time)/CLOCKS_PER_SEC*1000 << "ms" << endl;//输出运行时间
 	cout << "=================================\n" << "创建单链表：\n";
 	linlist_s = create();
-	List(linlist_s);
+	// List(linlist_s);
 	cout << "冒泡排序：\n";
 	clock_t q2_start_time=clock();
     sequen_two(linlist_s, ArSize);
     clock_t q2_end_time=clock();
     
-	List(linlist_s);
+	// List(linlist_s);
     cout << "排序用时: "<< static_cast<double>(q2_end_time-q2_start_time)/CLOCKS_PER_SEC*1000 << "ms" << endl;//输出运行时间
     cout << "=================================\n";
 //	system("pause");
