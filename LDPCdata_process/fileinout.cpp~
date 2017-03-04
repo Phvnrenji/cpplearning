@@ -7,7 +7,7 @@
 #include <cstdlib>
 
 const int FILE_SIZE = 60;
-const int DATA_SIZE = 1153;  
+const int DATA_SIZE = 216;  //帧长
 
 int main (){
     using namespace std;
@@ -53,8 +53,8 @@ int main (){
             // cout << data[i];
             outFile << data[i];     //写数据到txt文件中
         }
-        // outFile << endl;
-        // outFile << "\nDone. The size of data is: " << count << endl;
+        // cout << endl;
+        outFile << "\nDone. The size of data is: " << count << endl;
     }
     //关闭文件
     outFile.close();
